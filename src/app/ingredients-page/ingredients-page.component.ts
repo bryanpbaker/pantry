@@ -1,5 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import {NgForm} from '@angular/forms';
+// import services
+import { RecipesService } from '../services/recipes/recipes.service';
 
 @Component({
   selector: 'app-ingredients-page',
@@ -8,10 +10,14 @@ import {NgForm} from '@angular/forms';
 })
 export class IngredientsPageComponent implements OnInit {
 
-  constructor() { }
+  constructor(
+    private RecipesService: RecipesService
+  ) { }
 
   ngOnInit() {
   }
+
+  public recipes: Array<Object>;
 
   formSubmit(f: NgForm) {
     let searchTerm = '';
@@ -20,7 +26,13 @@ export class IngredientsPageComponent implements OnInit {
       searchTerm += `${ingredient.value},`;
     });
 
-    console.log(searchTerm);
+    this.RecipesService.fetchRecipesByIngredient(searchTerm)
+      .subscribe((response) => {
+        this.recipes = response.results.map((recipe) => {
+          console.log(recipe);
+          return recipe;
+        })
+      });
   }
 
 }

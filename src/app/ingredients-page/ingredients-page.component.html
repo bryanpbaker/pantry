@@ -30,4 +30,16 @@
       </div>
     </div>
   </div>
+  <div class="recipes container-fluid">
+    <div class="row">
+      <div class="card col-3" *ngFor="let recipe of recipes">
+        <img class="card-img-top" [src]="recipe.thumbnail" [alt]="recipe.title">
+        <div class="card-body">
+          <h4 class="card-title">{{recipe.title}}</h4>
+          <p class="card-text">{{recipe.ingredients}}</p>
+          <a [href]="recipe.href" class="btn btn-primary" target="_blank">Get It!</a>
+        </div>
+      </div>
+    </div>
+  </div>
 </div>

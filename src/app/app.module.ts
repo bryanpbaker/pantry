@@ -4,9 +4,11 @@ import { routing } from './app.routes';
 import { TagInputModule } from 'ngx-chips';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations'; // this is needed!
 import { FormsModule } from '@angular/forms';
+import { HttpModule, JsonpModule, Jsonp, Response } from '@angular/http';
+
+import { RecipesService } from './services/recipes/recipes.service';
 
 import { AppComponent } from './app.component';
-// import { HeaderComponent } from './header/header.component';
 import { IngredientsPageComponent } from './ingredients-page/ingredients-page.component';
 import { RecipesPageComponent } from './recipes-page/recipes-page.component';
 import { HomePageComponent } from './home-page/home-page.component';
@@ -27,9 +29,11 @@ import { HeaderComponent } from './header/header.component';
     routing,
     TagInputModule,
     BrowserAnimationsModule,
-    FormsModule
+    FormsModule,
+    HttpModule,
+    JsonpModule
   ],
-  providers: [],
+  providers: [RecipesService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
