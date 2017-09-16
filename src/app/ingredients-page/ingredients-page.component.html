@@ -1,3 +1,33 @@
-<p>
-  ingredients-page works!
-</p>
+<div class="ingredients-page">
+  <div class="container-fluid">
+    <div class="row justify-content-sm-center">
+      <h1>Find a recipe using ingredients you have...</h1>
+    </div>
+  </div>
+  <div class="container-fluid">
+    <div class="row justify-content-sm-center">
+      <div class="col-10">
+        <div class="card border-primary mb-3">
+          <div class="card-header">Ingredients</div>
+          <div class="card-body text-primary">
+            <h4 class="card-title">Add ingredients, then click "Search"</h4>
+            <p class="card-text">Be sure to add <b><em>singular</em></b> ingredients, or else you may not get the results you want. <b>Example: "carrot" instead of "carrots"</b></p>
+            <form #f="ngForm" (ngSubmit)="formSubmit(f)">
+              <div class="form-group">
+                <tag-input
+                  ngModel
+                  name="ingredients"
+                  theme='dark'
+                  placeholder="+ ingredient"
+                  secondaryPlaceholder="Add some ingredients!"
+                >
+                </tag-input>
+              </div>
+              <button type="submit" class="btn btn-primary">Search</button>
+            </form>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

@@ -1,5 +1,10 @@
 import { ModuleWithProviders } from '@angular/core';
 import { Routes, RouterModule } from '@angular/router';
+// import components
+import { HomePageComponent } from './home-page/home-page.component';
+import { IngredientsPageComponent } from './ingredients-page/ingredients-page.component';
+import { RecipesPageComponent } from './recipes-page/recipes-page.component';
+import { PageNotFoundComponent } from './page-not-found/page-not-found.component';
 
 const routes: Routes = [
   // root path
